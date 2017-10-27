@@ -38,6 +38,8 @@ object SlickApp extends App {
 
   messagesResults.foreach(result => println(result))
 
+  tracer.flush(5000)
+
   def testData = Seq(
     Message("Message 1"),
     Message("Message 2"),
