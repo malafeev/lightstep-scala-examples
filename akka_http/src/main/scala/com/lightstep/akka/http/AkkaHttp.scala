@@ -1,9 +1,9 @@
-package com.lightbend.akka.http
+package com.lightstep.akka.http
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model._
-import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
+import akka.http.scaladsl.server.Directives.{complete, extractRequest, get, path}
 import akka.stream.ActorMaterializer
 import com.lightstep.tracer.jre.JRETracer
 import com.lightstep.tracer.shared.Options.OptionsBuilder
@@ -49,4 +49,3 @@ object AkkaHttp extends App {
       .flatMap(_.unbind()) // trigger unbinding from the port
       .onComplete(_ => system.terminate()) // and shutdown when done
 }
-
